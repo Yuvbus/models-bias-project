@@ -7,7 +7,9 @@ from os.path import join as pjoin
 # DIRECTORIES
 ##################################################################
 
-PROJ_DIR = str(os.environ.get("MODELVSHUMANDIR", "model-vs-human"))
+# TODO: set your paths
+IMAGENETS_DIR = None # Set your ImageNetS path
+PROJ_DIR = None # Set your models-bias-project directory
 assert (PROJ_DIR != "None"), "Please set the 'MODELVSHUMANDIR' environment variable as described in the README"
 CODE_DIR = pjoin(PROJ_DIR, "modelvshuman")
 DATASET_DIR = pjoin(PROJ_DIR, "datasets")
@@ -53,7 +55,7 @@ DEFAULT_DATASETS = ["edge", "silhouette", "cue-conflict"] + \
 
 PLOT_TYPE_TO_DATASET_MAPPING = {
     # default plot types:
-    "shape-bias": ["cue-conflict"],
+    "shape-bias": ["cue-conflict", "cue-conflict-4", "cue-conflict-9", "cue-conflict-14", "cue-conflict-19", "cue-conflict-24", "cue-conflict-29", "filled-silhouette-cue-conflict"],
     "accuracy": NOISE_GENERALISATION_DATASETS,
     "nonparametric-benchmark-barplot": ["edge", "silhouette", "sketch", "stylized"],
     "benchmark-barplot": DEFAULT_DATASETS,
