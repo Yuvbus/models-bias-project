@@ -146,9 +146,9 @@ def plot_nonparallel(plot_types,
             plot_shape_bias_matrixplot(datasets=datasets,
                                        decision_maker_fun=plotting_definition,
                                        result_dir=result_dir)
-            plot_shape_bias_boxplot(datasets=datasets,
-                                    decision_maker_fun=plotting_definition,
-                                    result_dir=result_dir)
+            # plot_shape_bias_boxplot(datasets=datasets,
+            #                         decision_maker_fun=plotting_definition,
+            #                         result_dir=result_dir)
 
         elif plot_type == "error-consistency":
             plot_error_consistency(datasets=datasets,
@@ -465,7 +465,7 @@ def plot_shape_bias_matrixplot(datasets,
                                order_by='humans'):
     assert len(datasets) == 1
     ds = datasets[0]
-    assert ds.name == "cue-conflict"
+    assert "cue-conflict" in ds.name
 
     log(plot_type="shape-bias-matrixplot", dataset_name=ds.name)
 
@@ -526,7 +526,7 @@ def plot_shape_bias_matrixplot(datasets,
             break
 
     # icon placement is calculated in axis coordinates
-    WIDTH = 1 / num_classes  #
+    WIDTH = 1 / (num_classes + 6)  #
     XPOS = -1.25 * WIDTH  # placement left of yaxis (-WIDTH) plus some spacing (-.25*WIDTH)
     YPOS = -0.5
     HEIGHT = 1

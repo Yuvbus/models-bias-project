@@ -18,6 +18,12 @@ def model_pytorch(model_name, *args):
 
 
 @register_model("pytorch")
+def dinov2(model_name, *args):
+    model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitg14_lc')
+    return PytorchModel(model, model_name, *args)
+
+
+@register_model("pytorch")
 def resnet50_trained_on_SIN(model_name, *args):
     from .shapenet import texture_shape_models as tsm
     model = tsm.load_model(model_name)

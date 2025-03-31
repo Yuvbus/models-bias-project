@@ -3,6 +3,7 @@ from .sketch import sketch
 from .stylized import stylized
 from .texture_shape import *
 from .noise_generalisation import *
+from .cue_conflict import *
 
 from .dataset_converters import ToTensorflow
 

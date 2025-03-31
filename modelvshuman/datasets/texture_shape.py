@@ -10,7 +10,7 @@ from .. import constants as c
 from ..evaluation import metrics as m
 
 __all__ = ["original", "greyscale", "texture", "edge", "silhouette",
-           "cue_conflict"]
+           "cue_conflict", "white_background", "edges", "grayscale", "low_pass", "high_pass", "band_pass"]
 
 
 @dataclass
@@ -61,3 +61,33 @@ def silhouette(*args, **kwargs):
 @register_dataset(name="cue-conflict")
 def cue_conflict(*args, **kwargs):
     return _get_dataset("cue-conflict", *args, **kwargs)
+
+
+@register_dataset(name="white-background")
+def white_background(*args, **kwargs):
+    return _get_dataset("white-background", *args, **kwargs)
+
+
+@register_dataset(name="edges")
+def edges(*args, **kwargs):
+    return _get_dataset("edges", *args, **kwargs)
+
+
+@register_dataset(name="grayscale")
+def grayscale(*args, **kwargs):
+    return _get_dataset("grayscale", *args, **kwargs)
+
+
+@register_dataset(name="low-pass")
+def low_pass(*args, **kwargs):
+    return _get_dataset("low-pass", *args, **kwargs)
+
+
+@register_dataset(name="high-pass")
+def high_pass(*args, **kwargs):
+    return _get_dataset("high-pass", *args, **kwargs)
+
+
+@register_dataset(name="band-pass")
+def band_pass(*args, **kwargs):
+    return _get_dataset("band-pass", *args, **kwargs)

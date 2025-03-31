@@ -11,8 +11,7 @@ from ..evaluation import metrics as m
 from .base import Dataset
 from .experiments import *
 
-__all__ = ["colour", "contrast", "high_pass", "low_pass",
-           "phase_scrambling", "power_equalisation",
+__all__ = ["colour", "contrast", "phase_scrambling", "power_equalisation",
            "false_colour", "rotation", "eidolonI",
            "eidolonII", "eidolonIII", "uniform_noise"]
 
@@ -52,18 +51,18 @@ def contrast(*args, **kwargs):
                         *args, **kwargs)
 
 
-@register_dataset(name="high-pass")
-def high_pass(*args, **kwargs):
-    return _get_dataset(name="high-pass",
-                        params=NoiseGeneralisationParams(experiments=[high_pass_experiment]),
-                        *args, **kwargs)
+# @register_dataset(name="high-pass")
+# def high_pass(*args, **kwargs):
+#     return _get_dataset(name="high-pass",
+#                         params=NoiseGeneralisationParams(experiments=[high_pass_experiment]),
+#                         *args, **kwargs)
 
 
-@register_dataset(name="low-pass")
-def low_pass(*args, **kwargs):
-    return _get_dataset(name="low-pass",
-                        params=NoiseGeneralisationParams(experiments=[low_pass_experiment]),
-                        *args, **kwargs)
+# @register_dataset(name="low-pass")
+# def low_pass(*args, **kwargs):
+#     return _get_dataset(name="low-pass",
+#                         params=NoiseGeneralisationParams(experiments=[low_pass_experiment]),
+#                         *args, **kwargs)
 
 
 @register_dataset(name="phase-scrambling")

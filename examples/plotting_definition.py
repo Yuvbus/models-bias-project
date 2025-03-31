@@ -7,7 +7,8 @@ Define decision makers (either human participants or CNN models).
 from modelvshuman import constants as c
 from modelvshuman.plotting.colors import *
 from modelvshuman.plotting.decision_makers import DecisionMaker
-
+import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 
 def plotting_definition_template(df):
     """Decision makers to compare a few models with human observers.
@@ -27,19 +28,47 @@ def plotting_definition_template(df):
 
     decision_makers = []
 
+    decision_makers.append(DecisionMaker(name_pattern="resnet50_trained_on_SIN",
+                                         color=rgb(31, 119, 180), marker="x", df=df,
+                                         plotting_name="ResNet-50 trained on SIN"))
+    decision_makers.append(DecisionMaker(name_pattern="resnet50_trained_on_SIN_and_IN",
+                                         color=rgb(255, 127, 14), marker="x", df=df,
+                                         plotting_name="ResNet-50 trained on SIN and IN"))
+    decision_makers.append(DecisionMaker(name_pattern="resnet50_trained_on_SIN_and_IN_then_finetuned_on_IN",
+                                         color=rgb(44, 160, 44), marker="x", df=df,
+                                         plotting_name="ResNet-50 trained on SIN and IN then finetuned on IN"))
     decision_makers.append(DecisionMaker(name_pattern="resnet50",
-                           color=rgb(65, 90, 140), marker="o", df=df,
-                           plotting_name="ResNet-50"))
-    decision_makers.append(DecisionMaker(name_pattern="bagnet33",
-                           color=rgb(110, 110, 110), marker="o", df=df,
-                           plotting_name="BagNet-33"))
-    decision_makers.append(DecisionMaker(name_pattern="simclr_resnet50x1",
-                           color=rgb(210, 150, 0), marker="o", df=df,
-                           plotting_name="SimCLR-x1"))
-    decision_makers.append(DecisionMaker(name_pattern="subject-*",
-                           color=rgb(165, 30, 55), marker="D", df=df,
-                           plotting_name="humans"))
+                                         color=rgb(214, 39, 40), marker="o", df=df,
+                                         plotting_name="ResNet-50"))
+    decision_makers.append(DecisionMaker(name_pattern="alexnet",
+                                         color=rgb(148, 103, 189), marker="o", df=df,
+                                         plotting_name="AlexNet"))
+    decision_makers.append(DecisionMaker(name_pattern="vgg16",
+                                         color=rgb(140, 86, 75), marker="o", df=df,
+                                         plotting_name="VGG-16"))
+    decision_makers.append(DecisionMaker(name_pattern="vit_b_16",
+                                         color=rgb(227, 119, 194), marker="D", df=df,
+                                         plotting_name="ViT-B-16"))
+    decision_makers.append(DecisionMaker(name_pattern="clip",
+                                         color=rgb(127, 127, 127), marker="D", df=df,
+                                         plotting_name="CLIP"))
+    decision_makers.append(DecisionMaker(name_pattern="dinov2",
+                                         color=rgb(188, 189, 34), marker="D", df=df,
+                                         plotting_name="DinoV2"))
+
+    create_legend(decision_makers)
+
     return decision_makers
+
+def create_legend(decision_makers):
+    fig, ax = plt.subplots(figsize=(6, 4))
+    legend_elements = [Line2D([0], [0], color=decision_maker.color, marker=decision_maker.marker,
+                              markersize=8, label=decision_maker.plotting_name, linestyle='')
+                       for decision_maker in decision_makers]
+    ax.legend(handles=legend_elements, loc='center')
+    ax.axis('off')
+    plt.savefig("legend_image.svg", bbox_inches='tight', pad_inches=0.1)
+    plt.close()
 
 
 def get_comparison_decision_makers(df, include_humans=True,
