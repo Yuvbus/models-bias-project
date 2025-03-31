@@ -1,0 +1,15 @@
+subj,dataset_name,metric_name,performance
+dinov2,white-background,accuracy (top-1),1.0
+dinov2,silhouette,accuracy (top-1),0.6565699658703071
+dinov2,grayscale,accuracy (top-1),0.9987201365187713
+dinov2,edges,accuracy (top-1),0.6493174061433447
+dinov2,texture,accuracy (top-1),1.0
+dinov2,imagenet_validation,accuracy (top-1),0.9065454545454545
+dinov2,imagenet_validation,accuracy (top-5),0.9876363636363636
+dinov2,stylized,accuracy (top-1),0.71625
+dinov2,stylized,accuracy (top-5),0.88375
+dinov2,cue-conflict-9,accuracy (top-1),0.6747368421052632
+dinov2,filled-silhouette-cue-conflict,accuracy (top-1),0.18011695906432748
+dinov2,low-pass,accuracy (top-1),0.9782423208191127
+dinov2,high-pass,accuracy (top-1),0.6885665529010239
+dinov2,band-pass,accuracy (top-1),0.6416382252559727

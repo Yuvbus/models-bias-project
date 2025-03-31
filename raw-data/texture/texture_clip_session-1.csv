@@ -1,0 +1,11 @@
+subj,session,trial,rt,object_response,category,condition,imagename
+clip,1,1,NaN,bear,bear,NaN,bear1.png
+clip,1,2,NaN,bicycle,bicycle,NaN,bicycle1.jpg
+clip,1,3,NaN,bird,bird,NaN,bird1.png
+clip,1,4,NaN,bottle,bottle,NaN,bottle1.jpg
+clip,1,5,NaN,cat,cat,NaN,cat1.jpg
+clip,1,6,NaN,chair,chair,NaN,chair1.jpg
+clip,1,7,NaN,clock,clock,NaN,clock1.jpg
+clip,1,8,NaN,dog,dog,NaN,dog1.jpg
+clip,1,9,NaN,elephant,elephant,NaN,elephant1.jpg
+clip,1,10,NaN,knife,knife,NaN,knife1.jpg
